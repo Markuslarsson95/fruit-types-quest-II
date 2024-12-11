@@ -7,33 +7,24 @@ import { fruits } from "./fruits";
 export const getFruit = (name: string): Fruit | undefined => {
   // använd fruits-arrayen och returnera det fruit-objekt som matchar name
   // finns det ingen sådan fruit så returnera undefined
-  return fruits.find((fruit) => fruit.name === name);
+  return fruits.find((fruit) => fruit.name === name.toLowerCase());
 };
 
 export const getIcon = (name: string): Icon | undefined => {
   // använd fruits-arrayen och returnera ikonen som matchar frukten name
   // finns det ingen sådan frukt så returnera undefined
-  const fruit = getFruit(name);
-  if (fruit) {
-    return fruit.icon;
-  }
+  return getFruit(name)?.icon;
 };
 
 export const getColor = (name: string): Color | undefined => {
   // använd fruits-arrayen och returnera färgen som matchar frukten name
   // finns det ingen sådan frukt så returnera undefined
-  const fruit = getFruit(name);
-  if (fruit) {
-    return fruit.color;
-  }
+  return getFruit(name)?.color;
 };
 
 // gör en till funktion som man ger ett fruktnamn och som returnerar en frukts kategori
 export const getCategory = (name: string): Category | undefined => {
-  const fruit = getFruit(name);
-  if (fruit) {
-    return fruit.category;
-  }
+  return getFruit(name)?.category;
 };
 
 export const numberOfColoredFruits = (color: Color): number => {
